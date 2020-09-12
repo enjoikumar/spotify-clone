@@ -8,6 +8,7 @@ import Player from "./Player";
 import { getTokenFromUrl } from "./spotify";
 import { useDataLayerValue } from "./DataLayer";
 
+
 const spotify = new SpotifyWebApi();
 
 function App() {
@@ -46,6 +47,19 @@ function App() {
           discover_weekly: response
         })
       );
+
+      spotify.getMyTopArtists().then((response) =>
+        dispatch({
+          type: "SET_TOP_ARTISTS",
+          top_artists: response
+        })
+      );
+
+      dispatch({
+        type: "SET_SPOTIFY",
+        spotify: spotify,
+      });
+
     }
   }, []);
 

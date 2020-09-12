@@ -55,7 +55,7 @@ const reducer = (state, action) => {
         ...state,
         discover_weekly: action.discover_weekly
       }
-      
+
     case "SET_SPOTIFY":
       return {
         ...state,
